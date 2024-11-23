@@ -1,0 +1,38 @@
+Define moves = [0, 1, 2, 3], learning_games = 100, real_games = 30.
+2. Function arr_to_tuple(arr): Return tuple of array elements.
+3. Class score_tracker_full_board:
+   - Store board scores using a dictionary.
+   - Function get_score(board): Retrieve score for board.
+   - Function set_score(afterstate, score): Update score for afterstate.
+4. Class score_tracker:
+   - Store row-wise scores in dictionaries.
+   - Function get_score(board): Sum scores for all rows.
+   - Function set_score(afterstate, alpha, reward_next, afterstate_next, score): Update row scores based on TD learning.
+5. Class TDAfterStateLearningAgent:
+   - Define score dictionary and learning rate (alpha).
+   - Function get_move_from_score(board): Select best move based on max score.
+   - Function evaluate(board, action): Compute score and reward for action.
+   - Function update(startState, reward, afterstate, nextState): Update score based on TD learning.
+6. Function get_max_tile(board): Return maximum tile value in board.
+7. Function play_game(iterations, learning_enabled, agent):
+   - Simulate games, perform moves, update scores, and apply learning if enabled.
+   - Track scores, max tiles, and output statistics.
+8. In main(), initialize agent, play learning and real games, and display results.
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+1: function PLAY_GAME
+2:   score ← 0
+3:   s ← INITIALIZE_GAME_STATE
+4:   while ¬IS_TERMINAL_STATE(s) do
+5:       a ← arg max_a'(E(s)) EVALUATE(s, a')
+6:       r, s' ← MAKE_MOVE(s, a)
+7:       if LEARNING_ENABLED then
+8:           LEARN_EVALUATION(s, a, r, s', s")
+9:       score ← score + r
+10:      s ← s'
+11:  return score
+
+12: function MAKE_MOVE(s, a)
+13:   r ← COMPUTE_AFTERSTATE(s, a)
+14:   s' ← ADD_RANDOM_TILE(s')
+15:   return (r, s')
