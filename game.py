@@ -1,197 +1,143 @@
 import numpy as np
 import random
 
-# initialize a new game
-def new_game(n):
-    matrix = np.zeros([n, n])
-    return matrix
+# Initialize a new game board
+def new_game(size):
+    return np.zeros((size, size), dtype=int)
 
+# Retrieve empty cells from the board
+def get_empty_cells(board):
+    return [(i, j) for i in range(len(board)) for j in range(len(board[0])) if board[i][j] == 0]
 
-def get_empty_cells(mat):
-    empty_cells = []
-    for i in range(len(mat)):
-        for j in range(len(mat[0])):
-            if (mat[i][j] == 0):
-                empty_cells.append((i, j))
-    return empty_cells
+# Add a new tile (2 or 4) to a random empty cell
+def add_two(board):
+    empty_cells = get_empty_cells(board)
+    if not empty_cells:
+        return board
 
+    row, col = random.choice(empty_cells)
+    board[row][col] = 4 if random.random() >= 0.9 else 2
+    return board
 
-# add 2 or 4 in the matrix
-def add_two(mat):
-    empty_cells = []
-    for i in range(len(mat)):
-        for j in range(len(mat[0])):
-            if (mat[i][j] == 0):
-                empty_cells.append((i, j))
-    if (len(empty_cells) == 0):
-        return mat
-
-    index_pair = empty_cells[random.randint(0, len(empty_cells) - 1)]
-
-    prob = random.random()
-    if (prob >= 0.9):
-        mat[index_pair[0]][index_pair[1]] = 4
-    else:
-        mat[index_pair[0]][index_pair[1]] = 2
-    return mat
-
-
-# to check state of the game
-def game_state(mat):
-    # if 2048 in mat:
-    #    return 'win'
-
-    for i in range(len(mat) - 1):  # intentionally reduced to check the row on the right and below
-        for j in range(len(mat[0]) - 1):  # more elegant to use exceptions but most likely this will be their solution
-            if mat[i][j] == mat[i + 1][j] or mat[i][j + 1] == mat[i][j]:
+# Check the game state (win, lose, or ongoing)
+def game_state(board):
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            if board[i][j] == 0:
                 return 'not over'
 
-    for i in range(len(mat)):  # check for any zero entries
-        for j in range(len(mat[0])):
-            if mat[i][j] == 0:
+            if i < len(board) - 1 and board[i][j] == board[i + 1][j]:
                 return 'not over'
 
-    for k in range(len(mat) - 1):  # to check the left/right entries on the last row
-        if mat[len(mat) - 1][k] == mat[len(mat) - 1][k + 1]:
-            return 'not over'
-
-    for j in range(len(mat) - 1):  # check up/down entries on last column
-        if mat[j][len(mat) - 1] == mat[j + 1][len(mat) - 1]:
-            return 'not over'
+            if j < len(board[0]) - 1 and board[i][j] == board[i][j + 1]:
+                return 'not over'
 
     return 'lose'
 
+# Reverse the rows of the board
+def reverse(board):
+    return np.flip(board, axis=1)
 
-def reverse(mat):
-    new = []
-    for i in range(len(mat)):
-        new.append([])
-        for j in range(len(mat[0])):
-            new[i].append(mat[i][len(mat[0]) - j - 1])
-    return new
+# Transpose the board
+def transpose(board):
+    return board.T
 
-
-def transpose(mat):
-    new = []
-    for i in range(len(mat[0])):
-        new.append([])
-        for j in range(len(mat)):
-            new[i].append(mat[j][i])
-
-    return np.transpose(mat)
-
-
-def cover_up(mat):
-    new = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+# Cover up zeros to the left
+def cover_up(board):
+    new_board = np.zeros_like(board)
     done = False
-    for i in range(4):
-        count = 0
-        for j in range(4):
-            if mat[i][j] != 0:
-                new[i][count] = mat[i][j]
-                if j != count:
+
+    for i in range(len(board)):
+        position = 0
+        for j in range(len(board[0])):
+            if board[i][j] != 0:
+                new_board[i][position] = board[i][j]
+                if j != position:
                     done = True
-                count += 1
-    return (new, done)
+                position += 1
 
+    return new_board, done
 
-def merge(mat):
+# Merge tiles
+def merge(board):
     done = False
     score = 0
-    for i in range(4):
-        for j in range(3):
-            if mat[i][j] == mat[i][j + 1] and mat[i][j] != 0:
-                mat[i][j] *= 2
-                score += mat[i][j]
-                mat[i][j + 1] = 0
+
+    for i in range(len(board)):
+        for j in range(len(board[0]) - 1):
+            if board[i][j] == board[i][j + 1] and board[i][j] != 0:
+                board[i][j] *= 2
+                score += board[i][j]
+                board[i][j + 1] = 0
                 done = True
-    return (mat, done, score)
 
+    return board, done, score
 
-# up move
-def up(game):
-    game = transpose(game)
-    game, done = cover_up(game)
-    temp = merge(game)
-    game = temp[0]
-    done = done or temp[1]
-    game = cover_up(game)[0]
-    game = transpose(game)
-    return (game, done, temp[2])
-
-
-# down move
-def down(game):
-    game = reverse(transpose(game))
-    game, done = cover_up(game)
-    temp = merge(game)
-    game = temp[0]
-    done = done or temp[1]
-    game = cover_up(game)[0]
-    game = transpose(reverse(game))
-    return (game, done, temp[2])
-
-
-# left move
-def left(game):
-    game, done = cover_up(game)
-    temp = merge(game)
-    game = temp[0]
-    done = done or temp[1]
-    game = cover_up(game)[0]
-    return (game, done, temp[2])
-
-
-# right move
-def right(game):
-    game = reverse(game)
-    game, done = cover_up(game)
-    temp = merge(game)
-    game = temp[0]
-    done = done or temp[1]
-    game = cover_up(game)[0]
-    game = reverse(game)
-    return (game, done, temp[2])
-
-
+# Perform a move in a specific direction
 def perform_move(board, move):
-    if move == 0:
-        board, _, score = up(board)
-    elif move == 1:
-        board, _, score = left(board)
-    elif move == 2:
-        board, _, score = right(board)
-    elif move == 3:
-        board, _, score = down(board)
+    if move == 0:  # Up
+        board = transpose(board)
+        board, done = cover_up(board)
+        board, merged, score = merge(board)
+        board = cover_up(board)[0]
+        board = transpose(board)
+    elif move == 1:  # Left
+        board, done = cover_up(board)
+        board, merged, score = merge(board)
+        board = cover_up(board)[0]
+    elif move == 2:  # Right
+        board = reverse(board)
+        board, done = cover_up(board)
+        board, merged, score = merge(board)
+        board = cover_up(board)[0]
+        board = reverse(board)
+    elif move == 3:  # Down
+        board = transpose(board)
+        board = reverse(board)
+        board, done = cover_up(board)
+        board, merged, score = merge(board)
+        board = cover_up(board)[0]
+        board = reverse(board)
+        board = transpose(board)
     else:
         print("ILLEGAL MOVE")
-        return None, None
+        return None, 0
+
     return board, score
 
-
+# Main game loop
 def main():
     print("NEW GAME")
-    game = new_game(4)
-    game = add_two(game)
-    game = add_two(game)
+    board = new_game(4)
+    board = add_two(board)
+    board = add_two(board)
     score = 0
-    lost = False
-    print(game)
-    print()
-    while not lost:
-        move = ''
-        while (not move.isdigit()) or (int(move) > 3):
-            move = input('Enter move (0:up, 1:left, 2:right, 3:down): ')
-        game, new_score = perform_move(game, int(move))
-        score += new_score
-        game = add_two(game)
-        print(np.array(game))
-        print()
-        if game_state(game) == 'lose':
-            print("YOU LOSE!")
-            print("SCORE: ", score)
-            lost = True
 
+    print(board)
+    print()
+
+    while True:
+        move = ''
+        while not move.isdigit() or int(move) not in range(4):
+            move = input("Enter move (0: Up, 1: Left, 2: Right, 3: Down): ")
+
+        move = int(move)
+        board, move_score = perform_move(board, move)
+        score += move_score
+
+        if board is None:
+            print("Invalid move. Try again.")
+            continue
+
+        board = add_two(board)
+        print(np.array(board))
+        print(f"Score: {score}\n")
+
+        if game_state(board) == 'lose':
+            print("YOU LOSE!")
+            print("FINAL SCORE:", score)
+            break
 
 if __name__ == "__main__":
     main()
+ 
