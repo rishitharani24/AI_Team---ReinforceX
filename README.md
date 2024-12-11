@@ -26,7 +26,7 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 ---
 ---
 ## Usage Instructions:
-Download all the codes present in our repository and place them in a single folder.
+Download all the codes present in this repository and place them in a single folder.
 
 ## game.py:
 To play the game, run the script in the terminal (python game.py). It initializes a 4x4 grid with two random tiles (2 or 4). Use numeric inputs (0: Up, 1: Left, 2: Right, 3: Down) to slide tiles. After each move, a new tile appears on the grid. The goal is to combine tiles with the same value to create higher-value tiles while maximizing your score. The game ends when no moves are possible, and your final score is displayed.
@@ -50,7 +50,7 @@ To play the game, run the script in the terminal (python game.py). It initialize
 4. **Expectimax**:
    - **Description**: Expectimax is a heuristic search algorithm that alternates between maximizing the player’s move and expecting random tile placements on the board. By evaluating all possible outcomes up to a certain depth, it selects the move with the highest expected value.
    - **Implementation**: Our Expectimax agent recursively evaluated moves using a depth-limited search. For each move, it considered the potential placement of new tiles (2 or 4) and the player’s response, aiming to maximize long-term scores. Depth levels controlled the computational complexity.
-   - **Expectimax Code Usage Instructions**: Open terminal and navigate to the directory where you saved MTD.py and execute it using the command python MTD.py. Code will train a Minimax agent with alpha-beta pruning to play 2048. The agent will play multiple games, making decisions based on a search tree of possible moves. The results will display the average score, standard deviation of scores, and the frequency of reaching different tile values.
+   - **Expectimax Code Usage Instructions**: Open terminal and navigate to the directory where you saved expectimax_agent.py and execute it using the command python expectimax_agent.py. Code will train a Minimax agent with alpha-beta pruning to play 2048. The agent will play multiple games, making decisions based on a search tree of possible moves. The results will display the average score, standard deviation of scores, and the frequency of reaching different tile values.
 
 ---
 
