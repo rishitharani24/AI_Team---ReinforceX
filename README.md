@@ -24,8 +24,10 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 - Python 3.7 or higher
 - NumPy library
 ---
+---
 **Usage Instructions**
 Download all the codes present in our repository and place them in a single folder.
+
 **game.py**
 To play the game, run the script in the terminal (python game.py). It initializes a 4x4 grid with two random tiles (2 or 4). Use numeric inputs (0: Up, 1: Left, 2: Right, 3: Down) to slide tiles. After each move, a new tile appears on the grid. The goal is to combine tiles with the same value to create higher-value tiles while maximizing your score. The game ends when no moves are possible, and your final score is displayed.
 
