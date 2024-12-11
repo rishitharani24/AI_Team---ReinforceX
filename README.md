@@ -5,39 +5,50 @@
 - **Narasimha Reddy Padire**
 - **Sai Teja Somboju**
 
-**Under the Guidance of:** Dr. Shivanjali Khare
+**Under the Guidance of: Dr. Shivanjali Khare**
 
 ---
 
 ## Introduction:
 2048 is a popular single-player puzzle game where players combine numbered tiles to maximize their score and reach tiles with values like 2048 or higher. While its rules are simple, the game presents a complex challenge due to random tile generation, limited board space, and the need for strategic decision-making. Solving this problem efficiently is important because it involves optimizing gameplay strategies under uncertainty, which is akey challenge in artificial intelligence.
 
- Developing AI agents to play 2048 using reinforcement learning techniques, such as Q-learning and Temporal Difference (TD) Learning, to make smart decisions in uncertain conditions can lead to more effective decision-making. By comparing these methods with others like Expectimax and baseline models, this research not only aims to improve game performance but also demonstrates how such techniques can be applied to real-world problems that require complex decision-making under constraints.
-
+Developing AI agents to play 2048 using reinforcement learning techniques, such as Q-learning and Temporal Difference (TD) Learning, to make smart decisions in uncertain conditions can lead to more effective decision-making. By comparing these methods with others like Expectimax and baseline models, this research not only aims to improve game performance but also demonstrates how such techniques can be applied to real-world problems that require complex decision-making under constraints.
 
 ---
 
 ## Research Question:
 We hypothesize that an AI agent, utilizing reinforcement learning methods like Q-learning and Temporal Difference (TD) learning, can effectively play the game 2048 by selecting optimal moves to maximize the score, achieve tile values of 2048 or higher, and minimize decision time compared to other strategies like Expectimax and baseline approaches.
 
+---
+**Requirements**
+- Python 3.7 or higher
+- NumPy library
+---
+**Usage Instructions**
+Download all the codes present in our repository and place them in a single folder.
+**game.py**
+To play the game, run the script in the terminal (python game.py). It initializes a 4x4 grid with two random tiles (2 or 4). Use numeric inputs (0: Up, 1: Left, 2: Right, 3: Down) to slide tiles. After each move, a new tile appears on the grid. The goal is to combine tiles with the same value to create higher-value tiles while maximizing your score. The game ends when no moves are possible, and your final score is displayed.
 
 ---
-
 ## AI Strategies:
 1. **Random Agent** (Baseline Model):
-   - **Description**: IT'S A RANDOM AGENT WHICH PERFORMS RANDOM MOVES.
+   - **Description**: IT'S A RANDOM AGENT WHICH PERFORMS RANDOM MOVES. Outputs the final grid and score for analysis.
+   - **Random Agent Code Usage Instructions**: Open terminal or command prompt and navigate to the directory where you saved MRANDOM.py.Run the script python MRANDOM.py in your terminal. The output will display the average score, standard deviation of scores, and the frequency of reaching different tile values across multiple simulated games.
 
 2. **Q-Learning**:
    - **Description**: Q-Learning is a model-free reinforcement learning algorithm. It enables the AI agent to learn the best actions to take in a given state by updating its Q-values through experience.
    - **Implementation**: In our project, the agent evaluated the after-state of the board after each move. It used a reward system to update its Q-values, focusing on maximizing scores and reaching higher tiles. The balance between exploration (trying new moves) and exploitation (choosing known best moves) was crucial for improvement.
+   - **Q-Learning Code Usage Instructions**: Open terminal and navigate to the directory where you saved MQlearning.py and execute it using the command python MQlearning.py. The script trains a reinforcement learning agent to play 2048, evaluates its performance, and displays the average score, standard deviation, and tile frequency for both training and evaluation phases.
 
 3. **TD-Learning**:
    - **Description**: Temporal Difference (TD) Learning is another reinforcement learning method that predicts future rewards dynamically.
    - **Implementation**: Our TD-Learning agent assessed the board state after each move. It predicted the expected future rewards and adjusted scores incrementally using a learning rate, leading to faster convergence compared to Q-Learning. This method allowed the agent to make smarter moves dynamically.
+   - **TD-Learning Code Usage Instructions**: Open terminal and navigate to the directory where you saved MTD.py and execute it using the command python MTD.py. The agent will play multiple games, learning from its mistakes and improving its strategy over time. Code will output the average score, standard deviation of scores, and the frequency of reaching different tile values for both training and evaluation phases.
 
 4. **Expectimax**:
    - **Description**: Expectimax is a heuristic search algorithm that alternates between maximizing the player’s move and expecting random tile placements on the board. By evaluating all possible outcomes up to a certain depth, it selects the move with the highest expected value.
    - **Implementation**: Our Expectimax agent recursively evaluated moves using a depth-limited search. For each move, it considered the potential placement of new tiles (2 or 4) and the player’s response, aiming to maximize long-term scores. Depth levels controlled the computational complexity.
+   - **Expectimax Code Usage Instructions**: Open terminal and navigate to the directory where you saved MTD.py and execute it using the command python MTD.py. Code will train a Minimax agent with alpha-beta pruning to play 2048. The agent will play multiple games, making decisions based on a search tree of possible moves. The results will display the average score, standard deviation of scores, and the frequency of reaching different tile values.
 
 ---
 
@@ -114,14 +125,6 @@ The project demonstrates the effectiveness of AI techniques in solving strategic
 This research highlights trade-offs between learning efficiency, computational complexity, and gameplay performance, offering valuable insights for future AI applications.
 
 ---
-
-
----
-## Usage Instructions:
-To use the project, clone the repository and install the required dependencies using pip install -r requirements.txt. Then, run the Python script run_agent.py with the desired agent by specifying the --agent argument followed by one of the available options: random, qlearning, tdlearning, or expectimax. You can also specify the number of games to run with the --games argument. For example, to run the Q-Learning agent for 1000 games, execute python run_agent.py --agent qlearning --games 1000. The script will output the game score and moves made by the AI agent, and the final score will be displayed at the end of each game. This allows users to test and compare the performance of different agents and strategies for solving the 2048 game.
-
----
-
 ---
 ## Project Structure
 
