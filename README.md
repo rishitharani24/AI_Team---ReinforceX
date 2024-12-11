@@ -144,6 +144,8 @@ The project is organized as follows:
 
 - **`ReinforceforceX_ProjectProposal.pdf`**: The project proposal document, describing the goals, methodologies, and plan for the project.
 
+- - **`AI_FINAL_PPT.pptx`**: Final PowerPoint presentation summarizing the project.
+
 - **`README.md`**: This file, which provides an overview of the project, installation instructions, and usage guidelines.
 
 ---
