@@ -135,10 +135,10 @@ The project is organized as follows:
   - **`MTD.py`**: Implementation of the Temporal Difference (TD) learning algorithm.
 
   - **`Pseudocodes/`**: Contains pseudocode files describing the algorithms used in the project.
-  - **`Expectimax.txt`**: Pseudocode for the Expectimax algorithm.
-  - **`Qlearning.txt`**: Pseudocode for the Q-learning algorithm.
-  - **`RandomAgent.txt`**: Pseudocode for the Random agent.
-  - **`TDLearning.txt`**: Pseudocode for the Temporal Difference (TD) learning algorithm.
+    - **`Expectimax.txt`**: Pseudocode for the Expectimax algorithm.
+    - **`Qlearning.txt`**: Pseudocode for the Q-learning algorithm.
+    - **`RandomAgent.txt`**: Pseudocode for the Random agent.
+    - **`TDLearning.txt`**: Pseudocode for the Temporal Difference (TD) learning algorithm.
 
   - **`Results.txt`**: Contains the results from the experiments, including scores, success rates, and performance comparisons.
 
