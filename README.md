@@ -34,7 +34,7 @@ To play the game, run the script in the terminal (python game.py). It initialize
 ---
 ## AI Strategies:
 1. **Random Agent** (Baseline Model):
-   - **Description**: IT'S A RANDOM AGENT WHICH PERFORMS RANDOM MOVES. Outputs the final grid and score for analysis.
+   - **Description**: IT'S A RANDOM AGENT WHICH PERFORMS RANDOM MOVES.
    - **Random Agent Code Usage Instructions**: Open terminal or command prompt and navigate to the directory where you saved MRANDOM.py.Run the script python MRANDOM.py in your terminal. The output will display the average score, standard deviation of scores, and the frequency of reaching different tile values across multiple simulated games.
 
 2. **Q-Learning**:
