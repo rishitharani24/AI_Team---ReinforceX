@@ -122,4 +122,30 @@ To use the project, clone the repository and install the required dependencies u
 
 ---
 
+---
+## Project Structure
+
+The project is organized as follows:
+
+- **`main/`**: Contains the core implementation files for the 2048 game AI.
+  - **`expectimax_agent.py`**: Python implementation of the Expectimax agent.
+  - **`game.py`**: The main game logic for 2048, which is used by all agents.
+  - **`MQlearning.py`**: Implementation of the Q-learning algorithm.
+  - **`MRANDOM.py`**: Implementation of the random agent.
+  - **`MTD.py`**: Implementation of the Temporal Difference (TD) learning algorithm.
+
+- **`Pseudocodes/`**: Contains pseudocode files describing the algorithms used in the project.
+  - **`Expectimax.txt`**: Pseudocode for the Expectimax algorithm.
+  - **`Qlearning.txt`**: Pseudocode for the Q-learning algorithm.
+  - **`RandomAgent.txt`**: Pseudocode for the Random agent.
+  - **`TDLearning.txt`**: Pseudocode for the Temporal Difference (TD) learning algorithm.
+
+- **`Results.txt`**: Contains the results from the experiments, including scores, success rates, and performance comparisons.
+
+- **`ReinforceforceX_ProjectProposal.pdf`**: The project proposal document, describing the goals, methodologies, and plan for the project.
+
+- **`README.md`**: This file, which provides an overview of the project, installation instructions, and usage guidelines.
+
+---
+
 **Thank You!**
