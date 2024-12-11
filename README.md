@@ -134,19 +134,19 @@ The project is organized as follows:
   - **`MRANDOM.py`**: Implementation of the random agent.
   - **`MTD.py`**: Implementation of the Temporal Difference (TD) learning algorithm.
 
-- **`Pseudocodes/`**: Contains pseudocode files describing the algorithms used in the project.
+  - **`Pseudocodes/`**: Contains pseudocode files describing the algorithms used in the project.
   - **`Expectimax.txt`**: Pseudocode for the Expectimax algorithm.
   - **`Qlearning.txt`**: Pseudocode for the Q-learning algorithm.
   - **`RandomAgent.txt`**: Pseudocode for the Random agent.
   - **`TDLearning.txt`**: Pseudocode for the Temporal Difference (TD) learning algorithm.
 
-- **`Results.txt`**: Contains the results from the experiments, including scores, success rates, and performance comparisons.
+  - **`Results.txt`**: Contains the results from the experiments, including scores, success rates, and performance comparisons.
 
-- **`ReinforceforceX_ProjectProposal.pdf`**: The project proposal document, describing the goals, methodologies, and plan for the project.
+  - **`ReinforceforceX_ProjectProposal.pdf`**: The project proposal document, describing the goals, methodologies, and plan for the project.
 
-- - **`AI_FINAL_PPT.pptx`**: Final PowerPoint presentation summarizing the project.
+  -  **`AI_FINAL_PPT.pptx`**: Final PowerPoint presentation summarizing the project.
 
-- **`README.md`**: This file, which provides an overview of the project, installation instructions, and usage guidelines.
+  - **`README.md`**: This file, which provides an overview of the project, installation instructions, and usage guidelines.
 
 ---
 
