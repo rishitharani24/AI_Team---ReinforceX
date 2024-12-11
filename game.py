@@ -1,4 +1,4 @@
-#Game.py
+#Game
 import numpy as np
 import random
 
