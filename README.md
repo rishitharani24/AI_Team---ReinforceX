@@ -1,6 +1,6 @@
 # Reinforcement Learning for Game 2048
 
-## Team Members
+## Team Members:
 - **Rishitha Rani Pakam**
 - **Narasimha Reddy Padire**
 - **Sai Teja Somboju**
@@ -9,7 +9,7 @@
 
 ---
 
-## Introduction
+## Introduction:
 2048 is a popular single-player puzzle game where players combine numbered tiles to maximize their score and reach tiles with values like 2048 or higher. While its rules are simple, the game presents a complex challenge due to random tile generation, limited board space, and the need for strategic decision-making. Solving this problem efficiently is important because it involves optimizing gameplay strategies under uncertainty, which is akey challenge in artificial intelligence.
 
  Developing AI agents to play 2048 using reinforcement learning techniques, such as Q-learning and Temporal Difference (TD) Learning, to make smart decisions in uncertain conditions can lead to more effective decision-making. By comparing these methods with others like Expectimax and baseline models, this research not only aims to improve game performance but also demonstrates how such techniques can be applied to real-world problems that require complex decision-making under constraints.
@@ -17,13 +17,13 @@
 
 ---
 
-## Research Question
+## Research Question:
 We hypothesize that an AI agent, utilizing reinforcement learning methods like Q-learning and Temporal Difference (TD) learning, can effectively play the game 2048 by selecting optimal moves to maximize the score, achieve tile values of 2048 or higher, and minimize decision time compared to other strategies like Expectimax and baseline approaches.
 
 
 ---
 
-## AI Strategies
+## AI Strategies:
 1. **Random Agent** (Baseline Model):
    - **Description**: IT'S A RANDOM AGENT WHICH PERFORMS RANDOM MOVES.
 
@@ -41,25 +41,25 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 
 ---
 
-## Observed Results
-### Random Agent
+## Observed Results:
+### Random Agent:
 - **Average Score**: 958.71
 - **Standard Deviation**: 470.32
 - **Success rate for reaching Highest tile**: Rarely reaches higher tiles (e.g., 256,512 or beyond).
 
-### Q-Learning
+### Q-Learning:
 - **Average Score**: 2549.54 (after 10,000 games)
 - **Standard Deviation**: 1224.46
 - **Success rate for reaching Highest tile**: Reaches tile 512 with a frequency of 4.89%.
 
-### TD-Learning
+### TD-Learning:
 - **Average Score**: 3394.14 (after 10,000 games)
 - **Standard Deviation**: 1658.34
 - **Success rate for reaching Highest tile**:
   - Tile 512: 18.91%
   - Tile 1024: 0.04%
 
-### Expectimax
+### Expectimax:
 - **Average Score**: 31,958.4 (at depth 2)
 - **Standard Deviation**: 7502.50
 - **Success rate for reaching Highest tile**:
@@ -72,7 +72,7 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 
 ---
 
-## Comparison of Agent Performance
+## Comparison of Agent Performance:
 1. **Random Agent**:
    - Achieves the lowest average score (958.71).
    - Rarely progresses beyond the 256 tile.
@@ -88,7 +88,7 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 
 ---
 
-## Limitations
+## Limitations:
 - High time complexity for Expectimax due to tree-based evaluation.
 - Dependence on extensive training for Q-Learning and TD-Learning.
 - Sensitivity to hyperparameter tuning, such as learning rates.
@@ -96,7 +96,7 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 
 ---
 
-## Future Scope
+## Future Scope:
 1. **Advanced Techniques**: Implement Deep Q-Learning to handle large state spaces.
 2. **Optimizations**: Improve Expectimax with pruning and heuristic evaluations.
 3. **Generalization**: Adapt agents for larger grids and real-world applications.
@@ -104,7 +104,7 @@ We hypothesize that an AI agent, utilizing reinforcement learning methods like Q
 
 ---
 
-## Conclusion
+## Conclusion:
 The project demonstrates the effectiveness of AI techniques in solving strategic games like 2048. Among the strategies tested:
 - Expectimax delivers the highest performance but is computationally expensive.
 - TD-Learning strikes a balance between efficiency and performance.
@@ -112,6 +112,13 @@ The project demonstrates the effectiveness of AI techniques in solving strategic
 - The Random Agent serves as a baseline with minimal computational cost.
 
 This research highlights trade-offs between learning efficiency, computational complexity, and gameplay performance, offering valuable insights for future AI applications.
+
+---
+
+
+---
+## Usage Instructions:
+To use the project, clone the repository and install the required dependencies using pip install -r requirements.txt. Then, run the Python script run_agent.py with the desired agent by specifying the --agent argument followed by one of the available options: random, qlearning, tdlearning, or expectimax. You can also specify the number of games to run with the --games argument. For example, to run the Q-Learning agent for 1000 games, execute python run_agent.py --agent qlearning --games 1000. The script will output the game score and moves made by the AI agent, and the final score will be displayed at the end of each game. This allows users to test and compare the performance of different agents and strategies for solving the 2048 game.
 
 ---
 
