@@ -20,7 +20,7 @@ Developing AI agents to play 2048 using reinforcement learning techniques, such 
 We hypothesize that an AI agent, utilizing reinforcement learning methods like Q-learning and Temporal Difference (TD) learning, can effectively play the game 2048 by selecting optimal moves to maximize the score, achieve tile values of 2048 or higher, and minimize decision time compared to other strategies like Expectimax and baseline approaches.
 
 ---
-**Requirements**
+## Requirements
 - Python 3.7 or higher
 - NumPy library
 ---
