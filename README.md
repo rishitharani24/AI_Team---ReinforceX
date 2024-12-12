@@ -34,7 +34,7 @@ To play the game, navigate to the directory where codes has been saved and run t
 ---
 ## AI Strategies:
 1. **Random Agent** (Baseline Model):
-   - **Description**: IT'S A RANDOM AGENT WHICH PERFORMS RANDOM MOVES.
+   - **Description**: It's a Random Agent which performs Random moves.
    - **Random Agent Code Usage Instructions**: Open terminal or command prompt and navigate to the directory where you saved MRANDOM.py.Run the script python MRANDOM.py in your terminal. The output will display the average score, standard deviation of scores, and the frequency of reaching different tile values across multiple simulated games.
 
 2. **Q-Learning**:
